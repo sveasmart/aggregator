@@ -26,16 +26,13 @@ module.exports.aggregate = function(smallEvents, sampleSizeSeconds) {
         throw "These events are not in chronological order!"
       }
     }
-    console.log("currentBigEvent", currentBigEvent)
     if (!currentBigEvent) {
       currentBigEvent = createNewBigEvent(smallEvent, sampleSizeSeconds)
       bigEvents.push(currentBigEvent)
     } else {
       if (doesSmallEventBelongInBigEvent(smallEvent, currentBigEvent)) {
-        console.log("Small event belongs in big event", smallEvent, currentBigEvent)
         addSmallEventToBigEvent(smallEvent, currentBigEvent)
       } else {
-        console.log("Small event does NOT belong in big event", smallEvent, currentBigEvent)
         currentBigEvent = createNewBigEvent(smallEvent, sampleSizeSeconds)
         bigEvents.push(currentBigEvent)
       }
@@ -44,7 +41,6 @@ module.exports.aggregate = function(smallEvents, sampleSizeSeconds) {
 
 
   })
-  console.log("Will return", bigEvents)
 
   return bigEvents
 }

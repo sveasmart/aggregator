@@ -6,28 +6,7 @@ const expect = chai.expect
 const aggregate = require("./aggregator").aggregate
 
 describe('aggregator', function() {
-  it('echo', function() {
-    const event1 = {
-      meterName: "bla",
-      endTime: new Date("2017-01-01T12:00:10"),
-      seconds: 10,
-      energy: 1
-    }
-
-    const eventsToAggregate = [event1]
-    const aggregatedEvents = aggregate(eventsToAggregate, 10)
-
-    expect(aggregatedEvents).to.deep.equal([
-      {
-        meterName: "bla",
-        endTime: new Date("2017-01-01T12:00:10"),
-        seconds: 10,
-        energy: 1
-      }
-    ])
-  }),
-
-  it('echo', function() {
+  it('single event 10 -> 10', function() {
     const event1 = {
       meterName: "bla",
       endTime: new Date("2017-01-01T12:00:10"),
