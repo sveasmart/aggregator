@@ -3,7 +3,7 @@ const chai = require("chai");
 const assert = chai.assert
 const expect = chai.expect
 
-const aggregate = require("./aggregator").aggregate
+const aggregate = require("../src/aggregator").aggregate
 
 describe('aggregator', function() {
   it('single event 10 -> 10', function() {
